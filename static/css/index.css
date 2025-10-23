@@ -1,0 +1,128 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#header {
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    background-color: #5074ad;
+}
+
+#contentWindow {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    height: 80vh;
+    width: 100vw;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #5074ad;
+    width: 20%;
+    height: 100%;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+}
+
+#appWindow {
+    width: 80%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #5074ad;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    border-left: none;
+}
+
+.sidebarButton {
+    height: 50px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #819dc9;
+    border-color: white;
+    border-width: 2px;
+}
+
+#searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+    background-color: #819dc9;
+    border-bottom: white 2px solid;
+    box-sizing: border-box;
+}
+
+#searchbar {
+    width:70%
+}
+
+#searchButton {
+    height: 30px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #819dc9;
+    border: none;
+    border-radius: 5px;
+}
+
+#displayContainer {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    overflow: scroll;
+    background-color: #819dc9;
+    
+}
+
+#displayArea {
+    width: 100%;
+    height: 100%;
+    background-color: #819dc9;
+    cursor: pointer;
+    flex-grow: 2;
+}
+
+#songContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#footer {
+    width: 100%;
+    height: 5vh;
+    background-color: #5074ad;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer img {
+    object-fit: contain;
+}
