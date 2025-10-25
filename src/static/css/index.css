@@ -14,6 +14,8 @@ html, body {
 #header {
     width: 100%;
     height: 15vh;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 70px;
     font-weight: bold;
@@ -56,10 +58,15 @@ html, body {
     margin: 10px;
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: black;
     background-color: #819dc9;
     border-color: white;
     border-width: 2px;
+}
+
+.sidebarButton:hover {
+    background-color: #9db8e2;
+    cursor: pointer;
 }
 
 #searchContainer {
@@ -79,13 +86,13 @@ html, body {
 }
 
 #searchButton {
-    height: 30px;
+    height: 40px;
     margin-left: 10px;
     font-size: 16px;
     font-weight: bold;
-    color: white;
-    background-color: #819dc9;
-    border: none;
+    color: black;
+    background-color: #9db8e2;
+    border: solid white 2px;
     border-radius: 5px;
 }
 

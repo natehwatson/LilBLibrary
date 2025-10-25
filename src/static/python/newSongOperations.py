@@ -17,6 +17,7 @@ LyricToToken = defaultdict(list)
 SongToToken = defaultdict(list)
 SongToNotes = defaultdict(list)
 SongToNotesTokens = defaultdict(list)
+SongtoObject = []
 
 def tokenize(lyric):
   tokenList = []
@@ -157,7 +158,7 @@ def searchSong(song, returnLength=3):
   if (returnLength > 0):
     print(f"no more results found.")
 
-def searchLyric(string, returnLength=3):
+def searchLyric(string):
   pointsPerLyric = defaultdict(int)
   string = normalizeEntry(string)
   searchTokenList = tokenize(string)
@@ -171,13 +172,15 @@ def searchLyric(string, returnLength=3):
     print("no matching lyrics found")
     return
   
-  pointsPerLyric = sorted(pointsPerLyric.items(), key=lambda item: item[1], reverse=True)
+  sortedLyrics = sorted(pointsPerLyric.items(), key=lambda item: item[1], reverse=True)
 
-  for lyric, points in pointsPerLyric[0:returnLength]:
-    print(f"Lyric: {GREEN}\'{lyric}\'{RESET} found in: {CYAN}{LyricToSong.get(lyric)}{RESET}")
-    returnLength -= 1
-  if (returnLength > 0):
-    print(f"no more results found.")
+  lyricList =[]
+  for lyric, points in sortedLyrics:
+    createSongFromLyric(lyric)
+    lyricList.append(lyric)
+  return lyricList
+
+
 
 def searchNotes(string, returnLength=3):
   pointsPerSong = defaultdict(int)
@@ -226,19 +229,39 @@ def importLibrary():
   except FileNotFoundError:
     print("Library file not found. Starting with an empty library.")
   except json.JSONDecodeError:
-    print("Error decoding JSON from library file. Starting with an empty library.")
-  
+    print("Error decoding JSON from library file. Starting with an empty library.")   
 
-def main(): 
+def createAllSongs():
   importLibrary()
-  printDict()
-  addSong("Have a good day based freestyle", "my names brandon thats my real name")
-  addSong("Sooo Based Freestyle", "wanna hundred thousand")
-  addSong("Sooo Based Freestyle", "I aint even stutter")
-  addSong("Sooo Based Freestyle", "aint nun better")
-  printDict()
-  exportLibrary()
+  for song, lyric in songToLyric.items():
+    from .SongFactory import createSong
+    songObj = createSong(song, lyric)
+    SongtoObject.append(songObj)
+  return SongtoObject
 
+def createSongs(songList):
+  importLibrary()
+  for song in songList:
+    if song in songToLyric:
+      from .SongFactory import createSong
+      songObj = createSong(song, songToLyric.get(song))
+      SongtoObject.append(songObj)
+  return SongtoObject
 
-if __name__ == "__main__":
-  main()
+def createSongsFromLyrics(lyricList):
+  importLibrary()
+  for lyric in lyricList:
+    if lyric in LyricToSong:
+      from .SongFactory import createSong
+      songObj = createSong(songToLyric.get(lyric), lyric)
+      SongtoObject.append(songObj)
+  return SongtoObject
+
+def createSongFromLyric(lyric):
+  importLibrary()
+  if lyric in LyricToSong:
+    from .SongFactory import createSong
+    songObj = createSong(songToLyric.get(lyric), lyric)
+    return songObj
+  return None
+  

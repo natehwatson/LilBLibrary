@@ -22,7 +22,11 @@
                     <button id="searchButton">Search</button>
                 </div>
                 <div id="displayContainer">
-                    <!--- songs go here --->
+                    <p>
+                        {% for song in songs %}
+                            {% include 'songItem.html' %}
+                        {% endfor %}
+                    </p>
                 </div>
             </div>
         </div>
