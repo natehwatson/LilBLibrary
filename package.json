@@ -1,0 +1,26 @@
+{
+  "name": "lilblibrary",
+  "version": "1.0.0",
+  "description": "A database driven website to keep track of Lil B lyrics",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natehwatson/LilBLibrary.git"
+  },
+  "author": "Nate Watson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/natehwatson/LilBLibrary/issues"
+  },
+  "homepage": "https://github.com/natehwatson/LilBLibrary#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "handlebars": "^4.7.8",
+    "mysql2": "^3.15.3",
+    "save": "^2.9.0"
+  }
+}

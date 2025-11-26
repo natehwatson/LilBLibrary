@@ -103,8 +103,9 @@ html, body {
     width: 100%;
     overflow: scroll;
     background-color: #819dc9;
-    
+    align-items: center;
 }
+
 
 #displayArea {
     width: 100%;
