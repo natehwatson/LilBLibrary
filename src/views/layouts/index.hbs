@@ -7,7 +7,15 @@
         <title>Lil B Library</title>
     </head>
     <body>
-        {{{body}}}
-        <script src="/js/searchController.js"></script>
+        <div id="contentWindow">
+            {{> sidebar}}
+            <div id="appWindow">
+                {{> header}}
+                <div id="displayContainer">
+                    {{{body}}}
+                </div>
+            </div>
+        </div>
+        <script src="/js/search.js"></script>
     </body>
 </html>
